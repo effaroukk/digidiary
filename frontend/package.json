@@ -1,0 +1,27 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "frontend",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/effaroukk/digidiary.git"
+  },
+  "author": "Umar Farouk Abdulai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/effaroukk/digidiary/issues"
+  },
+  "homepage": "https://github.com/effaroukk/digidiary#readme",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  }
+}
