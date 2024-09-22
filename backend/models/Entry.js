@@ -1,11 +1,29 @@
 const mongoose = require('mongoose');
 
-const EntrySchema = new mongoose.Schema({
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  title: { type: String, required: true },
-  content: { type: String, required: true },
-  mood: { type: String },
-  date: { type: Date, default: Date.now }
+const entrySchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
+  },
+  mood: {
+    type: String,
+    enum: ['happy', 'sad', 'neutral'],
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-module.exports = mongoose.model('Entry', EntrySchema);
+module.exports = mongoose.model('Entry', entrySchema);
+
