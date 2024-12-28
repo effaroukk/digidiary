@@ -1,0 +1,25 @@
+/* when user hover the mouse on logout */
+.logoutID:hover{
+    height: 20px;
+    color:red;
+}
+/* when user hover the mouse on button */
+.btnList:hover
+{
+    height: 40px;
+    color:red;
+}
+/* style for logout  */
+.logoutID
+{
+    cursor:pointer;
+    color:white;
+    margin-right:10px;
+    font-weight:bold;
+    text-decoration:none;
+    
+}
+/* style for refresh button on memoList page */
+.refresh:hover{
+background-color: red;
+}
