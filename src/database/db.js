@@ -1,13 +1,20 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-const mongoUri = 'mongodb://localhost:27017/musicApp';
+const connection = async () => {
+    const uri = process.env.MONGO_URI; // Ensure your .env file has MONGO_URI defined
+    if (!uri) {
+        console.error("MongoDB connection string is missing!");
+        process.exit(1); // Exit the app if no URI is provided
+    }
 
-mongoose.connect(mongoUri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log('Connected to MongoDB on localhost'))
-  .catch(err => console.error('Error connecting to MongoDB:', err));
+    try {
+        await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log("Connected to MongoDB");
+    } catch (error) {
+        console.error("Error connecting to MongoDB:", error);
+        process.exit(1); // Exit the app if connection fails
+    }
+};
 
-export default mongoose.connection;
+module.exports = connection;
 
