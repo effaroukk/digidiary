@@ -1,19 +1,13 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-dotenv.config();
+import mongoose from 'mongoose';
 
-const mongoURI = process.env.URI;
+const mongoUri = 'mongodb://localhost:27017/musicApp';
 
-const connection = async () => {
-	try {
-		await mongoose.connect(mongoURI, {
-			useUnifiedTopology: true,
-			useNewUrlParser: true,
-		});
-		console.log("Connected to MongoDB");
-	} catch (err) {
-		console.error(err.message);
-	}
-};
+mongoose.connect(mongoUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log('Connected to MongoDB on localhost'))
+  .catch(err => console.error('Error connecting to MongoDB:', err));
 
-export default connection;
+export default mongoose.connection;
+
